@@ -9,17 +9,27 @@
 #define LWR 1
 #define RSE 2
 
+behaviors {
+        srp: srp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SRP";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>,<&key_repeat>;
+        };
+    };
+
 /* keymap */
 
 ZMK_LAYER(default_layer,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &kp TAB       &kp Q         &kp D         &kp L         &kp W         &kp B             &kp J         &kp F         &kp U         &kp A         &kp SEMI      &kp BSPC 
+         &kp TAB       &kp Q         &kp D         &kp R         &kp W         &kp B             &kp J         &kp F         &kp U         &kp P         &kp SEMI      &kp BSPC 
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp ESC       &kp N         &kp S         &kp R         &kp T         &kp G             &kp Y         &kp H         &kp E         &kp O         &kp I         &kp SQT
+         &kp ESC       &kp A         &kp S         &kp H         &kp T         &kp G             &kp Y         &kp H         &kp E         &kp O         &kp I         &kp SQT
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp LCTRL     &kp Z         &kp X         &kp M         &kp C         &kp V             &kp K         &kp P         &kp COMMA     &kp DOT       &kp FSLH      &kp RET
+         &kp LCTRL     &kp Z         &kp X         &kp M         &kp C         &kp V             &kp K         &kp L         &kp COMMA     &kp DOT       &kp FSLH      &kp RET
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LALT      &mo LWR       &kp LSHFT         &kp SPACE     &mo RSE       &kp LCMD
+                                                   &kp LALT      &mo LWR       &srp LSHFT         &kp SPACE     &mo RSE       &kp LCMD
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
