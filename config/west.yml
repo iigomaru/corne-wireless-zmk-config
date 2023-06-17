@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/andrewjrae/zmk/tree/keycode-pre-releasing
+    - name: andrewjrae
+      url-base: https://github.com/andrewjrae
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: andrewjrae
+      revision: keycode-pre-releasing
       import: app/west.yml
   self:
     path: config
