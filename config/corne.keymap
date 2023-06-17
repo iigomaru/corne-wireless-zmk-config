@@ -9,15 +9,11 @@
 #define LWR 1
 #define RSE 2
 
-behaviors {
-        srp: srp {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SRP";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            bindings = <&kp>,<&key_repeat>;
-        };
-    };
+ZMK_BEHAVIOR(srp, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&key_repeat>;
+)
 
 /* keymap */
 
@@ -29,7 +25,7 @@ ZMK_LAYER(default_layer,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
          &kp LCTRL     &kp Z         &kp X         &kp M         &kp C         &kp V             &kp K         &kp L         &kp COMMA     &kp DOT       &kp FSLH      &kp RET
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                   &kp LALT      &mo LWR       &srp LSHFT         &kp SPACE     &mo RSE       &kp LCMD
+                                                   &kp LALT      &mo LWR       &srp LSHFT LSHFT  &kp SPACE     &mo RSE       &kp LCMD
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
