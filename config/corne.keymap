@@ -10,9 +10,8 @@
 #define RSE 2
 
 ZMK_BEHAVIOR(srp, hold_tap,
-    flavor = "hold-preferred";
+    flavor = "tap-unless-interrupted";
     tapping-term-ms = <200>;
-    retro-tap;
     bindings = <&kp>, <&key_repeat>;
 )
 
